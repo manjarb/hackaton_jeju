@@ -1,0 +1,60 @@
+<div class="grey-bg">
+	<div class="container details-container">
+		<!-- <img src="img/m_visual_01.jpg" alt=""> -->
+		<ul class="bxslider">
+		</ul>
+		<div id="bx-pager">
+		</div>
+		<div class="festival-details-box">
+			<h1>{{ festival.festival_name }}</h1>
+			<p class="tagline-list">Type &emsp; <span class="tag-word">
+                <strong>Dynamic, Relax</strong></span></p>
+            <p>
+            	Date &emsp; <span class="date-list-color"><strong>{{ festival.festival_start_date| cmdate:'MM/dd/yyyy' }} - {{ festival.festival_end_date| cmdate:'MM/dd/yyyy' }}</strong></span>
+            </p>
+            <p>
+            	Price &emsp; 
+            	<span class="price-list-color"><strong>20,000&#8361;</strong></span>
+            </p>
+            <p>
+            	Location&emsp;
+            	<span class="Location-list-color"><strong>{{festival.festival_address}}</strong>
+            	</span>
+            </p>
+			<h3>Details</h3>
+			<p>
+				{{festival.festival_description}}
+			</p>
+
+			<div id="map" style="height: 400px;">
+				
+			</div>
+			
+			<hr>
+
+			<h4>Great moment from Traveler</h4>
+			
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div>
+						<video width="320" height="240" controls>
+						  <source src="../video/SampleVideo_360x240_1mb.mp4" type="video/mp4">
+
+						  Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-sm-6">
+					<div>
+						<video width="320" height="240" controls>
+						  <source src="../video/SampleVideo_360x240_1mb.mp4" type="video/mp4">
+
+						  Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

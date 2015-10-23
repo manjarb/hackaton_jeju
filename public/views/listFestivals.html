@@ -1,0 +1,135 @@
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+    <h3>Category</h3>
+    <hr>
+    <h4>Date</h4>
+    <div class="radio">
+      <label>
+        <input type="radio" name="DateRadios" id="optionsRadios1" value="option1">
+        Any
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="DateRadios" id="optionsRadios2" value="option2">
+        1 Week
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="DateRadios" id="optionsRadios2" value="option2">
+        1 Month
+      </label>
+    </div>
+    <hr>
+
+    <h4>Type</h4>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="">
+        Dynamic
+      </label>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="">
+        Relax
+      </label>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="">
+        Eating
+      </label>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="">
+        Traditional
+      </label>
+    </div>
+    <hr>
+    <h4>Price</h4>
+    <div class="radio">
+      <label>
+        <input type="radio" name="PriceRadios" id="PriceRadios1" value="option1">
+        Free
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="PriceRadios" id="PriceRadios2" value="option2">
+        1 - 10,000 &#8361;
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="PriceRadios" id="PriceRadios3" value="option2">
+        10,001 - 50,000 &#8361;
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="PriceRadios" id="PriceRadios4" value="option2">
+        More Than 50,000 &#8361;
+      </label>
+    </div>
+    <hr>
+
+    <h4>Location</h4>
+    <div class="radio">
+      <label>
+        <input type="radio" name="LocationRadios" id="LocationRadios1" value="option1">
+        Location 1
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="LocationRadios" id="LocationRadios2" value="option2">
+        Location 2
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="LocationRadios" id="LocationRadios3" value="option2">
+        Location 3
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="LocationRadios" id="LocationRadios4" value="option2">
+        Location 4
+      </label>
+    </div>
+    <hr>
+    <button type="button" class="btn btn-warning">Advance Search</button>
+<!--     <div class="list-group">
+        <a href="#" class="list-group-item active">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+
+    </div> -->
+</div>
+
+<div class="col-xs-12 col-sm-9">
+	<div ng-repeat="festival in festivals | filter:searchText" class="festival-list">
+    <div class="image-gallery-box">
+      <img src="{{ festival.festival_pictures| firstImage }}" alt="">
+    </div>
+    <div class="text-box-contain">
+        <h2>{{ festival.festival_name }}</h2>
+        <p class="tagline-list">Type &emsp; <span class="tag-word">
+        <strong>Dynamic, Relax</strong></span></p>
+        <p>Date &emsp; <span class="date-list-color"><strong>{{ festival.festival_start_date| cmdate:'MM/dd/yyyy' }} - {{ festival.festival_end_date| cmdate:'MM/dd/yyyy' }}</strong></span></p>
+        <p>Price &emsp; <span class="price-list-color"><strong>20,000&#8361;</strong></span></p>
+        <p>Location&emsp;<span class="Location-list-color">
+          <strong>
+            {{festival.festival_address}}
+          </strong></span>
+        </p>
+        <p><a class="btn btn-info" href="#/festivalDetails/{{festival.id}}" role="button">View details »</a></p>
+
+    </div>
+	</div>
+</div>

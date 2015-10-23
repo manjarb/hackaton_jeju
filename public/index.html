@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="omj">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>OH MY JEJU</title>
+
+	<link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/jquery.bxslider.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQP7AOSb-f7yGkko3SBltKRRbLnsy2Cyo">
+        </script>
+
+	<!-- <base href="/"> -->
+
+</head>
+<body>
+	<nav class="navbar blue-bg">
+      <div class="container white-text">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/home">OH MY JEJU</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+            	<a href="#/home">Home</a>
+            </li>
+            <li>
+            	<a href="#/festivalList">
+            		Festival List
+            		<!-- <span class="sr-only">(current)</span> -->
+            	</a>
+            </li>
+            <li>
+            	<a href="#/favorite">
+            		Favorite
+            	</a>
+            </li>
+            <li>
+              <div class="form-group">
+                <input style="margin-top: 10px;" type="text" class="form-control" placeholder="Search" ng-show="searchShow" ng-model="searchText">
+              </div>
+              
+            </li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+	<div class="grey-bg padding-bottom-30 padding-top-30">
+		<div class="container fix-margin-nav">
+	        <div ng-view>
+				
+			</div>
+	    </div>
+	</div>
+
+	<div class="container footer-container">
+		<footer>
+	        <p>© Company 2014</p>
+	      </footer>
+	</div>
+
+
+
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/angular.min.js" type="text/javascript"></script>
+	<script src="js/angular-route.min.js" type="text/javascript"></script>
+  <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+
+</body>
+</html>
