@@ -49,6 +49,28 @@ app.filter('firstImage', function() {
 
 });
 
+app.filter('getDiffDate', function() {
+
+  // In the return function, we must pass in a single parameter which will be the data we will work on.
+  // We have the ability to support multiple other parameters that can be passed into the filter optionally
+  return function(endDate,startDate) {
+
+    var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+
+    var endDateCal = new Date(endDate);
+    var startDateCal = new Date(startDate);
+    var timeDiff = Math.abs(endDateCal.getTime() - startDateCal.getTime());
+	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+	//var diffDays = Math.round(Math.abs((endDateCal.getTime() - startDateCal.getTime())/(oneDay)));
+	console.log("start dateee   " + startDate);
+	console.log("diffDaysooooooo   " + diffDays);
+
+	return diffDays;
+
+  }
+
+});
+
 app.filter('cmdate', [
     '$filter', function($filter) {
         return function(input, format) {
@@ -57,7 +79,7 @@ app.filter('cmdate', [
     }
 ]);
 
-app.controller('ListCtrl', ['$scope','$http','$rootScope', function($scope,$http,$rootScope) {
+app.controller('ListCtrl', ['$scope','$http','$rootScope','$filter', function($scope,$http,$rootScope,$filter) {
 
 	$rootScope.searchShow = true;
 
@@ -70,6 +92,41 @@ app.controller('ListCtrl', ['$scope','$http','$rootScope', function($scope,$http
         success: function(data){
         	//console.log(data);
         	$scope.festivals = data.results;
+
+   //      	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+			// var firstDate = new Date($scope.festivals.festival_end_date);
+			// var secondDate = new Date($scope.festivals.festival_start_date);
+
+			// var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+
+			// console.log($scope.festivals.festival_end_date);
+
+			$scope.dateRanges = 
+		    [
+		      { Name:'Any Dates', min: Number.MIN_VALUE, max: Number.MAX_VALUE },
+		      { Name:'1 week', min: 1, max: 7 },
+		      { Name:'1 month', min: 8, max: 30 },
+		    ];
+
+		    $scope.rangeLength = function(item){
+		    	var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+		    	var firstDate = new Date(item.festival_end_date);
+				var secondDate = new Date(item.festival_start_date);
+
+		        var days = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+
+				if(days <= 0){
+					days = 1;
+				}
+
+		        console.log("tiweeee   " + item.festival_end_date);
+		        console.log("daysaaaaa   " + days);
+
+		        return $scope.dateSelect && days >= $scope.dateSelect.min && days < $scope.dateSelect.max;
+		    }
+
+		    $scope.dateSelect = $scope.dateRanges[0];
+
         	$scope.$apply();
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {

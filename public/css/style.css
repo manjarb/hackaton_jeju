@@ -75,4 +75,13 @@ footer {
 .bx-wrapper .bx-viewport {
   left: 0; }
 
+.text-align-center {
+  text-align: center; }
+
+.festival-list-box {
+  margin-top: 30px; }
+
+.image-gallery-box img {
+  height: 230px; }
+
 /*# sourceMappingURL=style.css.map */
